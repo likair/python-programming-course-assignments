@@ -35,24 +35,41 @@ def c(x):
     i, j, k = 2, 0, 0
     for i in range(2, MAX):
         if i % 2 == 0:
-            for j in range(0, i):
+            for j in range(i):
                 numbers[i] += numbers[j]
         else:
             k += 1
             numbers[i] = (i - k) * numbers[1]
     return numbers[x]
+
+def c2(x):
+    if x == 0: return 1
+    elif x == 1: return 3
+    elif x % 2: return int((x + 1) / 2 * 3)
+    else:
+        s = 0
+        for i in range(x):
+            s += c2(i)
+        return s
     
-    
-for i in range(0, MAX):
+print('the question 1 ')
+for i in range(MAX):
     print(a(i), end=" ")
 print()
-
-for i in range(0, MAX):
+print()
+print('the question 2 ')
+for i in range(MAX):
     print(b(i), end=" ")
 print()
-
-for i in range(0, MAX):
+print()
+print('the question 3 ')
+for i in range(MAX):
     print(c(i), end=" ")
+print()
+print()
+print('the question 3 (different way) ')
+for i in range(MAX):
+    print(c2(i), end=" ")
                    
 
 
