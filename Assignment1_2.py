@@ -11,47 +11,49 @@ A program which prints out values belonging to the  following series:
 '''
 MAX = 10;  
 
-def a(i):
-    if i == 1:
+def a(x):
+    if x == 0:
         return 1
-    elif i == 2:
+    elif x == 1:
         return 1
     else:
-        return a(i - 2) + a(i - 1)
+        return a(x - 2) + a(x - 1)
     
-def b(i):
-    if i == 1:
+def b(x):
+    if x == 0:
         return 1
-    elif i == 2:
+    elif x == 1:
         return 1
-    elif i == 3:
+    elif x == 2:
         return 2
     else:
-        return b(i - 3) + b(i - 2) + b(i - 1)
+        return b(x - 3) + b(x - 2) + b(x - 1)
     
-for i in range(1, MAX):
+def c(x):
+    numbers = [0] * MAX
+    numbers[0], numbers[1] = 1, 3
+    i, j, k = 2, 0, 0
+    for i in range(2, MAX):
+        if i % 2 == 0:
+            numbers[i] = 0
+            for j in range(0, i):
+                numbers[i] += numbers[j]
+        else:
+            k += 1
+            numbers[i] = (i - k) * numbers[1]
+    return numbers[x]
+    
+    
+for i in range(0, MAX):
     print(a(i), end=" ")
 print()
 
-for i in range(1, MAX):
+for i in range(0, MAX):
     print(b(i), end=" ")
 print()
 
-                      
-numbers = [0] * MAX
-numbers[0], numbers[1] = 1, 3
-
-i, j, k = 2, 0, 0
-for i in range(2, MAX):
-    if i % 2 == 0:
-        numbers[i] = 0
-        for j in range(0, i):
-            numbers[i] += numbers[j]
-    else:
-        k += 1
-        numbers[i] = (i - k) * numbers[1]
-
-i = 0
 for i in range(0, MAX):
-    print(str(numbers[i]), end=" ")
+    print(c(i), end=" ")
+                   
+
 
