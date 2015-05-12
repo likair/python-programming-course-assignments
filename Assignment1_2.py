@@ -35,7 +35,6 @@ def c(x):
     i, j, k = 2, 0, 0
     for i in range(2, MAX):
         if i % 2 == 0:
-            numbers[i] = 0
             for j in range(0, i):
                 numbers[i] += numbers[j]
         else:
