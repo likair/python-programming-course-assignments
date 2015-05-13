@@ -1,6 +1,6 @@
 '''
 Created on 12.5.2015
-
+A program which uses an array variable and prints out the  following series: a1=-1 a2=2 a3=5 an=an-3+an-2+an-1/2...
 @author: e1201757
 '''
 MAX = 10

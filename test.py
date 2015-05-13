@@ -100,6 +100,8 @@ print(a)
 '''
 print([i[:] for i in [[0]*3]*3])
 '''
-
+li = [1, '']
+new_list = [ x for x in li if x != '' ]
+print(new_list)
 
 

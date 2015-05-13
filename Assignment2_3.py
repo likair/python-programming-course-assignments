@@ -1,6 +1,6 @@
 '''
 Created on 12.5.2015
-
+A program which uses a dictionary to save month names and the number of their days and prints out the names of  months which have 30 days.
 @author: e1201757
 '''
 month = None

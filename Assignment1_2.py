@@ -1,6 +1,6 @@
 '''
 Created on May 12, 2015
-
+A program which prints out the addition, subtraction and multiplication of two matrices.
 @author: Likai
 '''
 '''
