@@ -1,6 +1,8 @@
 '''
 Created on 12.5.2015
 
+    A program which prints out the addition, subtraction and multiplication of two matrices.
+    
 @author: e1201757
 '''
 a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]

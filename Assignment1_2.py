@@ -1,13 +1,12 @@
 '''
 Created on May 12, 2015
-A program which prints out the addition, subtraction and multiplication of two matrices.
+
+    A program which prints out values belonging to the  following series:  
+        1 1 2 3 5 8 13 21 ...
+        1 1 2 4 7 13 24 44 ...
+        1 3 4 6 14 9 37 12 ...
+        
 @author: Likai
-'''
-'''
-A program which prints out values belonging to the  following series:  
-1 1 2 3 5 8 13 21 ...
-1 1 2 4 7 13 24 44 ...
-1 3 4 6 14 9 37 12 ...
 '''
 MAX = 10;  
 

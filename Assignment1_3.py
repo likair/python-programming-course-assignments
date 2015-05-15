@@ -1,12 +1,10 @@
 '''
 Created on May 12, 2015
 
+    A program which prints all prime numbers smaller than 10000.
+    
 @author: Likai
 '''
-'''
-A program which prints all prime numbers smaller than 10000. 
-'''
-
 def isPrime(num):
     if num == 1:
         return False

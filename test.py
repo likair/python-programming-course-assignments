@@ -100,8 +100,69 @@ print(a)
 '''
 print([i[:] for i in [[0]*3]*3])
 '''
+'''
 li = [1, '']
 new_list = [ x for x in li if x != '' ]
 print(new_list)
+'''
+'''
+li = ['', '', '', 'a']
+for s in li[:]:
+    print(s)
+    if s == '':
+        li.remove(s)
+print(li)
+'''
+'''
+print("hello".maketrans('he', 'ab'))
+'''
+'''
+a = ['x', 'x', 'x', '0']
+b = []
+for s in a:
+    print(s)
+    if s != 'x':
+        #a.remove(s)
+        b.append(s)
+    a = b
+    #print(a)   
+print(a)
+'''
+'''
+name = 'lebs'
+age = 10
+print(name, age)
+print(name, age, sep=';')
+'''
+'''
+day = 10
+month = 3
+year = 2015
+print('{}/{}/{}'.format(day, month, year))
+'''
+'''
+print('{}')
+print('{}'.format('hello'))
+'''
+# the default parameter sequence
+print('{:5}{:8}'.format(456, 8973))
+# 1 means the second parameter, 0 means the first parameter
+print('{1:5}{0:8}'.format(456, 8973))
+# It seems it will show all the length of parameter even we limit the length less than its length
+print('{1:3}{0:5}'.format(456, 8973))
+print('{:5.2}'.format(10/3))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
