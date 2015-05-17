@@ -7,4 +7,4 @@ Created on 15.5.2015
 @author: e1201757
 '''
 
-print(input('Input some texts, I will encrypt for you: ').translate(str.maketrans('flower', 'garlic')))
+print(input('Input some texts, then I will encrypt for you: ').translate(str.maketrans('flower', 'garlic')))

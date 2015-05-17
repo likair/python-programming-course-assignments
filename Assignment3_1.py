@@ -16,7 +16,7 @@ def calcFormula(valuesList):
             y += sin(2*xn) - log(xn, 3) + 1/pow(xn, 5)
         else: return None
     return y
-valuesList = ['a', 2, 3]
+valuesList = [2, 3, 4]
 y = calcFormula(valuesList)
 if y != None: print(calcFormula([2, 3, 4]))
 else: print('Error input!')   

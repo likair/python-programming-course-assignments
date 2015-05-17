@@ -144,6 +144,7 @@ print('{}/{}/{}'.format(day, month, year))
 print('{}')
 print('{}'.format('hello'))
 '''
+'''
 # the default parameter sequence
 print('{:5}{:8}'.format(456, 8973))
 # 1 means the second parameter, 0 means the first parameter
@@ -151,14 +152,72 @@ print('{1:5}{0:8}'.format(456, 8973))
 # It seems it will show all the length of parameter even we limit the length less than its length
 print('{1:3}{0:5}'.format(456, 8973))
 print('{:5.2}'.format(10/3))
+'''
+'''
+import random
+month = random.randrange(1, 13)
+'''
+'''
+year = 2008
+if (not year % 4 and year % 100) or not year % 400:
+    print('leap')
+'''
+'''
+a = (1, 2, 3, 4)
+b = {}
+for i in a: b[i] = 0
+print(b)
+'''
+'''
+print(int(1000/23))
+
+num = 32
+print(str(num)[1])
+#print(len(num)) #wrong
+print(len(str(num)))
+'''
+'''
+# a method to replace the switch in other language
+def f(x):
+    return {
+        'a': 1,
+        'b': 2,
+    }.get(x, 9)
+'''
+'''
+import random
+import time
+
+def strTimeProp(start, end, format, prop):
+    """Get a time at a proportion of a range of two formatted times.
+
+    start and end should be strings specifying times formated in the
+    given format (strftime-style), giving an interval [start, end].
+    prop specifies how a proportion of the interval to be taken after
+    start.  The returned time will be in the specified format.
+    """
+
+    stime = time.mktime(time.strptime(start, format))
+    etime = time.mktime(time.strptime(end, format))
+
+    ptime = stime + prop * (etime - stime)
+
+    return time.strftime(format, time.localtime(ptime))
 
 
+def randomDate(start, end, prop):
+    return strTimeProp(start, end, '%m/%d/%Y %I:%M %p', prop)
 
-
-
-
-
-
+print(randomDate("1/1/2008 1:30 PM", "1/1/2009 4:50 AM", random.random()))
+'''
+import time
+import datetime
+#今天星期几
+today=int(time.strftime("%w"))
+print(today)
+#某个日期星期几
+anyday=datetime.datetime(2012, 4, 21).strftime("%w")
+print(anyday)
 
 
 

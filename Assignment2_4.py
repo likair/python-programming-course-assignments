@@ -10,10 +10,9 @@ Created on 13.5.2015
 '''
 test = input("Please input some test:")
 # remove the non word part
-wordsList = re.compile("\W").split(test)
+wordsList = re.compile("[^a-zA-Z0-9\\-öäå]+").split(test)
 dic = {}
 for word in wordsList:
-    if word != '':
         if not word in dic.keys():
             dic[word] = wordsList.count(word)
 
