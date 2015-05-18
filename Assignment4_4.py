@@ -5,6 +5,15 @@ Created on May 17, 2015
 
 @author: Likai
 '''
+'''
+    # Update: We can just import some built-in module to realize the functionality
+    
+    import locale, time
+
+    locale.setlocale(locale.LC_ALL,'Finnish_Finland')
+    print(time.strftime('%H:%M %A, %d %B %Y', time.localtime()))
+    
+'''
 import random, datetime
 
 MONTHS = ['', 'tammikuu', 'helmikuu', 'maaliskuu', 'huhtikuu', 'toukokuu', 'kesäkuu', 'heinäkuu', 'elokuu', 'syyskuu', 'lokakuu', 'marraskuu', 'joulukuu']
@@ -41,6 +50,7 @@ def numberInFinnish(num):
     else: return 'This number is not supported!'
 
 '''
+# Another gorgeous way to realize
 SUFFIX1 = ['', 'kymmentä', 'sata', 'tuhat']
 SUFFIX2 = ['', 'kymmentä', 'sataa', 'tuhatta']
 
@@ -83,7 +93,8 @@ def readTime(hour, minute):
         time += 'puoli' + numberInFinnish(hour)
     elif minute in range(31, 60):
         time += numberInFinnish(60 - minute) + ' vaille ' + numberInFinnish(hour)
-    time += '. (%d.%02d)' %(hour, minute)
+#   time += '. (%d.%02d)' %(hour, minute)
+    time += ' ({}.{:02d})'.format(hour, minute)
 #     if len(str(minute)) == 1:
 #         time += ' (' + str(hour) + '.' + '0' + str(minute) + ')'
 #     elif len(str(minute)) == 0:
@@ -92,7 +103,7 @@ def readTime(hour, minute):
     print(time)
     
 if __name__ == '__main__':
-# Generate date:
+    # Generate the date randomly:
     year = random.randrange(1000, 10000)
     month = random.randrange(1, 13)
     if month in (1, 3, 5, 7, 8, 10, 12):
@@ -108,7 +119,7 @@ if __name__ == '__main__':
     
     readDate(year, month, day)
     
-    # Generate time:
+    # Generate the time randomly:
     hour = random.randrange(0, 13)
     minute = random.randrange(0, 60)
     

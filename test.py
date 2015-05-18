@@ -321,5 +321,65 @@ for i in range(1001):
     print(numberInFinnish(i))
 
 '''
+'''
+# format is very strong.
+print('{1:6.3f}, {0:04d}'.format(1, 534.65464574))
+'''
+import locale, time
+
+locale.setlocale(locale.LC_ALL,'Finnish_Finland')
+print(time.strftime('%H:%M %A, %d %B %Y', time.localtime()))
+'''
+startTime = datetime.datetime(2015,5,1,8,15,30)
+
+endTime = datetime.datetime(2015,5,15,12,15)
+
+remainingTime = endTime-startTime
+
+print ('Remaining time is ' + str(remainingTime))
+
+#Here we define a date time format
+
+dateTimeFormat='%d.%m.%Y %H:%M:%S'
+
+#Here we define two date time strings
+
+dateTimeString1='1.01.2015 20:30:15'
+
+dateTimeString2='1.01.2015 20:31:00'
+
+#Here we check whetehr the dateTimeString1 is a valid dateTime value, wchich
+
+#matches the dateTimeFormat
+
+dateTimeStruct1=time.strptime(dateTimeString1, dateTimeFormat)
+
+#Here we check whetehr the dateTimeString2 is a valid dateTime value, wchich
+
+#matches the dateTimeFormat
+
+dateTimeStruct2=time.strptime(dateTimeString2, dateTimeFormat)
+
+#here we make time ou tof the dateTimeStruct1
+
+dateTime1=time.mktime(dateTimeStruct1)
+
+#here we make time ou tof the dateTimeStruct1
+
+dateTime2=time.mktime(dateTimeStruct2)
+
+#Here we calculate the time difference between two dateTime values
+
+timeDifference=(dateTime2 - dateTime1)
+
+#Here we print the time difference between two dateTime values
+
+print('The difefrence between ' + dateTimeString1 + ' and ' + dateTimeString2 + ' is ' +  str(timeDifference) + ' seconds')
+
+'''
+
+
+
+
 
 
