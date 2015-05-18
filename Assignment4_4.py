@@ -40,9 +40,9 @@ def numberInFinnish(num):
         return literality
     else: return 'This number is not supported!'
 
+'''
 SUFFIX1 = ['', 'kymmentä', 'sata', 'tuhat']
 SUFFIX2 = ['', 'kymmentä', 'sataa', 'tuhatta']
-'''
 # Another way
 def numberInFinnish(num):
     if num < 10000:

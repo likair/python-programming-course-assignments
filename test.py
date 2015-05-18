@@ -247,9 +247,76 @@ else:
     print('x1 = ' + str((-b + delta ** 0.5) / (2 * a)))
     print('x2 = ' + str((-b - delta ** 0.5) / (2 * a)))
 '''
+'''
 year = 2008
 day = 28 if (year % 4) or ((year % 400) and not(year % 100)) else 29
 print(day)
+'''
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+# Created on May 17, 2015
+#    A program which generates randomly a number of date and time values and displays them in Finnish language.
+# @author: Likai
+
+NUMBERS = ['nolla', 'yksi', 'kaksi', 'kolme', 'neljä', 'viisi', 'kuusi', 'seitsemän', 'kahdeksan', 'yhdeksän']
+SUFFIX1 = ['', 'kymmentä', 'sata', 'tuhat']
+SUFFIX2 = ['', 'kymmentä', 'sataa', 'tuhatta']
+
+def numberInFinnish(num):
+    if num < 10000:
+        literality = ''
+        i = 0
+        while num > 0:
+            digit = int(num % 10)
+            num /= 10
+            if digit == 1:
+                if i == 1:
+                    if literality == '':
+                        literality = 'kymmenen'
+                    else:
+                        literality += 'toista'
+                else: literality = NUMBERS[digit] + SUFFIX1[i] + literality
+
+            elif digit > 1 or num == digit:
+                literality = NUMBERS[digit] + SUFFIX2[i] + literality    
+            i += 1
+    else:
+        literality = 'This number is not supported!'
+    return literality
+
+SUFFIX1 = ['', 'kymmentä ', 'sata ', 'tuhat ']
+SUFFIX2 = ['', 'kymmentä ', 'sataa ', 'tuhatta ']
+
+def numberInFinnish2(num):
+    length = len(str(num))
+    if length < 5:
+        literality = ''
+        for i in range(length):
+            digit = length - i
+            if  digit == 4:
+                if str(num)[i] == '0': pass
+                elif str(num)[i] == '1':
+                    literality += NUMBERS[int(str(num)[i])] + 'tuhat '
+                else: literality += NUMBERS[int(str(num)[i])] + 'tuhatta '
+            elif digit == 3:
+                if str(num)[i] == '0': pass
+                elif str(num)[i] == '1':
+                    literality += NUMBERS[int(str(num)[i])] + 'yksisata '
+                else: literality += NUMBERS[int(str(num)[i])] + 'sattaa '
+            elif digit == 2:
+                if str(num)[i] == '0': pass
+                elif str(num)[i] == '1':
+                    if str(num)[i + 1] == '0':
+                        literality += 'kymmenen'
+                    else: literality += NUMBERS[int(str(num)[i + 1])] + 'toista'
+                else: literality += NUMBERS[int(str(num)[i])] + 'kymmentä'
+            elif digit == 1:
+                if num == int(str(num)[i]) or (length > 1 and str(num)[i - 1] != '1' and str(num)[i] != '0'):
+                    literality += NUMBERS[int(str(num)[i])]
+        return literality
+    else: return 'This number is not supported!'
+  
+print(numberInFinnish(1200))
 
 
 
