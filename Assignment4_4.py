@@ -40,6 +40,32 @@ def numberInFinnish(num):
         return literality
     else: return 'This number is not supported!'
 
+SUFFIX1 = ['', 'kymmentä', 'sata', 'tuhat']
+SUFFIX2 = ['', 'kymmentä', 'sataa', 'tuhatta']
+'''
+# Another way
+def numberInFinnish(num):
+    if num < 10000:
+        literality = ''
+        i = 0
+        while num > 0:
+            digit = int(num % 10)
+            num /= 10
+            if i == 1 and digit == 1:
+                if literality == '':
+                    literality = 'kymmenen'
+                else:
+                    literality += 'toista'
+            elif digit > 1:
+                literality = NUMBERS[digit] + SUFFIX2[i] + literality
+            elif digit == 1:
+                literality = NUMBERS[digit] + SUFFIX1[i] + literality
+            i += 1
+    else:
+        literality = 'This number is not supported!'
+    return literality
+'''
+
 def getWeekday(year, month, day):
     return WEEKDAYS[int(datetime.datetime(year, month, day).strftime("%w"))]
 
@@ -57,12 +83,12 @@ def readTime(hour, minute):
         time += 'puoli' + numberInFinnish(hour)
     elif minute in range(31, 60):
         time += numberInFinnish(60 - minute) + ' vaille ' + numberInFinnish(hour)
-    time += '.'
-    if len(str(minute)) == 1:
-        time += ' (' + str(hour) + '.' + '0' + str(minute) + ')'
-    elif len(str(minute)) == 0:
-        time += ' (' + str(hour) + '.00' + ')'
-    else: time += ' (' + str(hour) + '.' + str(minute) + ')'
+    time += '. (%d.%02d)' %(hour, minute)
+#     if len(str(minute)) == 1:
+#         time += ' (' + str(hour) + '.' + '0' + str(minute) + ')'
+#     elif len(str(minute)) == 0:
+#         time += ' (' + str(hour) + '.00' + ')'
+#     else: time += ' (' + str(hour) + '.' + str(minute) + ')'
     print(time)
     
 if __name__ == '__main__':
