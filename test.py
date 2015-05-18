@@ -3,7 +3,6 @@ Created on 12.5.2015
 
 @author: e1201757
 '''
-from builtins import range
 '''
 foo=0
 print([x[:] for x in [[foo]*10]*10])
@@ -325,10 +324,12 @@ for i in range(1001):
 # format is very strong.
 print('{1:6.3f}, {0:04d}'.format(1, 534.65464574))
 '''
+'''
 import locale, time
 
 locale.setlocale(locale.LC_ALL,'Finnish_Finland')
 print(time.strftime('%H:%M %A, %d %B %Y', time.localtime()))
+'''
 '''
 startTime = datetime.datetime(2015,5,1,8,15,30)
 
@@ -377,9 +378,31 @@ timeDifference=(dateTime2 - dateTime1)
 print('The difefrence between ' + dateTimeString1 + ' and ' + dateTimeString2 + ' is ' +  str(timeDifference) + ' seconds')
 
 '''
+'''
+import turtle
 
+t=turtle.Turtle()
 
+screen=turtle.Screen()
 
+screen.tracer(8, 25)
+
+dist = 5
+for i in range(100):
+
+    t.fd(dist)
+
+    t.rt(45)
+
+    dist += 5
+'''
+def sum_(n):  
+    return n + {  
+            True:lambda:sum_(n-1),  
+            False:lambda:0  
+        }[not not n]()  
+  
+print(sum_(100))
 
 
 

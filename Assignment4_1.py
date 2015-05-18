@@ -8,12 +8,12 @@ Created on May 17, 2015
 '''
 import turtle
 
-trigger = input('Input \'f\' for fire and \'q\' for quit:')
+#trigger = input('Input \'f\' for fire and \'q\' for quit:')
 V0 = 50
-
-if trigger == 'f':
+window = turtle.Screen()
+#if trigger == 'f':
+def f():
     print('Boom!')
-    window = turtle.Screen()
     brad = turtle.Turtle()
     brad.shape('circle')
     brad.dot(20, 'red')
@@ -22,7 +22,13 @@ if trigger == 'f':
         y = -0.5 * 10 * t **2
         brad.goto(x, y)
         brad.dot(1)
-    window.exitonclick()
-    
-elif trigger == 'q':
+
+#elif trigger == 'q':f
+def g():
+    window.bye()
     print('The program has been terminated!')
+
+window.onkey(f, 'f')
+window.onkey(g, 'g')
+window.listen()
+turtle.done()

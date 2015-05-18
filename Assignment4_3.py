@@ -3,7 +3,7 @@ Created on May 17, 2015
 
     A program, which draws a human face with falling tear drops.
 
-@author: Lsikai
+@author: Likai
 '''
 
 import turtle
@@ -70,11 +70,11 @@ def drawHead(brad, x=0, y=0):
     brad.circle(300)
     brad.penup()
 
-drawEye(brad, -45, 200)
-drawEye(brad, 250, 200)
-drawNose(brad, 60, 20)
-drawMouth(brad, -100, -40)
-drawHead(brad, 300, 80)
-drawTears(brad, 144, 94)
+drawEye(brad, -45, 120)
+drawEye(brad, 250, 120)
+drawNose(brad, 60, -60)
+drawMouth(brad, -100, -120)
+drawHead(brad, 300, 0)
+drawTears(brad, 144, 14)
 
 window.exitonclick()
