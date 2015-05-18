@@ -25,7 +25,7 @@ def numberInFinnish(num):
                 if str(num)[i] == '0': pass
                 elif str(num)[i] == '1':
                     literality += NUMBERS[int(str(num)[i])] + 'yksisata '
-                else: literality += NUMBERS[int(str(num)[i])] + 'satta '
+                else: literality += NUMBERS[int(str(num)[i])] + 'sattaa '
             elif digit == 2:
                 if str(num)[i] == '0': pass
                 elif str(num)[i] == '1':

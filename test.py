@@ -210,6 +210,7 @@ def randomDate(start, end, prop):
 
 print(randomDate("1/1/2008 1:30 PM", "1/1/2009 4:50 AM", random.random()))
 '''
+'''
 import time
 import datetime
 #今天星期几
@@ -219,7 +220,36 @@ print(today)
 anyday=datetime.datetime(2012, 4, 21).strftime("%w")
 print(anyday)
 
+'''
+'''
+sum = 0
+for year in range(10):
+    sum = (1000 + sum) * (1 + 0.047)
+print(sum)
+'''
+'''
+# get the current time
+import time
 
+print(time.strftime('%Y-%m-%d', time.localtime(time.time())))
+'''
+# solve the equation
+a = 10
+b = 40
+c = 15
+delta = b ** 2 - 4 * a * c
+if delta < 0:
+    print(' No solution!')
+elif delta == 0: 
+    print('x = ' + str(-b / (2 * a)))
+else: 
+    print('x1 = ' + str((-b + delta ** 0.5) / (2 * a)))
+    print('x2 = ' + str((-b - delta ** 0.5) / (2 * a)))
+    
+sum = 0
+for year in range(10):
+    sum = (1000 + sum) * (1 + 0.047)
+print(sum)
 
 
 
