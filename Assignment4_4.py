@@ -43,23 +43,23 @@ def numberInFinnish(num):
 '''
 SUFFIX1 = ['', 'kymmentä', 'sata', 'tuhat']
 SUFFIX2 = ['', 'kymmentä', 'sataa', 'tuhatta']
-# Another way
+
 def numberInFinnish(num):
     if num < 10000:
         literality = ''
         i = 0
+        if num == 0: return NUMBERS[0]
         while num > 0:
             digit = int(num % 10)
             num /= 10
-            if i == 1 and digit == 1:
-                if literality == '':
-                    literality = 'kymmenen'
-                else:
-                    literality += 'toista'
+            if digit == 1:
+                if i == 1:
+                    if literality == '':
+                        literality = 'kymmenen'
+                    else: literality += 'toista'
+                else: literality = NUMBERS[digit] + SUFFIX1[i] + literality
             elif digit > 1:
                 literality = NUMBERS[digit] + SUFFIX2[i] + literality
-            elif digit == 1:
-                literality = NUMBERS[digit] + SUFFIX1[i] + literality
             i += 1
     else:
         literality = 'This number is not supported!'

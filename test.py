@@ -3,6 +3,7 @@ Created on 12.5.2015
 
 @author: e1201757
 '''
+from builtins import range
 '''
 foo=0
 print([x[:] for x in [[foo]*10]*10])
@@ -257,6 +258,7 @@ print(day)
 # Created on May 17, 2015
 #    A program which generates randomly a number of date and time values and displays them in Finnish language.
 # @author: Likai
+'''
 
 NUMBERS = ['nolla', 'yksi', 'kaksi', 'kolme', 'neljä', 'viisi', 'kuusi', 'seitsemän', 'kahdeksan', 'yhdeksän']
 SUFFIX1 = ['', 'kymmentä', 'sata', 'tuhat']
@@ -266,6 +268,7 @@ def numberInFinnish(num):
     if num < 10000:
         literality = ''
         i = 0
+        if num == 0: return NUMBERS[0]
         while num > 0:
             digit = int(num % 10)
             num /= 10
@@ -273,12 +276,10 @@ def numberInFinnish(num):
                 if i == 1:
                     if literality == '':
                         literality = 'kymmenen'
-                    else:
-                        literality += 'toista'
+                    else: literality += 'toista'
                 else: literality = NUMBERS[digit] + SUFFIX1[i] + literality
-
-            elif digit > 1 or num == digit:
-                literality = NUMBERS[digit] + SUFFIX2[i] + literality    
+            elif digit > 1:
+                literality = NUMBERS[digit] + SUFFIX2[i] + literality
             i += 1
     else:
         literality = 'This number is not supported!'
@@ -287,7 +288,7 @@ def numberInFinnish(num):
 SUFFIX1 = ['', 'kymmentä ', 'sata ', 'tuhat ']
 SUFFIX2 = ['', 'kymmentä ', 'sataa ', 'tuhatta ']
 
-def numberInFinnish2(num):
+def numberInFinnish4(num):
     length = len(str(num))
     if length < 5:
         literality = ''
@@ -316,8 +317,9 @@ def numberInFinnish2(num):
         return literality
     else: return 'This number is not supported!'
   
-print(numberInFinnish(1200))
+for i in range(1001):
+    print(numberInFinnish(i))
 
-
+'''
 
 
