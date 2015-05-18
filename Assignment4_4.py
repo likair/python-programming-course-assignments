@@ -7,9 +7,10 @@ Created on May 17, 2015
 '''
 import random, datetime
 
-MONTHS = {1:'tammikuu', 2:'helmikuu', 3:'maaliskuu', 4:'huhtikuu', 5:'toukokuu', 6:'kesäkuu', 7:'heinäkuu', 8:'elokuu', 9:'syyskuu', 10:'lokakuu', 11:'marraskuu', 12:'joulukuu'}
-NUMBERS = {0: 'nolla', 1 : 'yksi', 2 : 'kaksi', 3 : 'kolme', 4 : 'neljä', 5 : 'viisi', 6 : 'kuusi', 7 : 'seitsemän', 8 : 'kahdeksan', 9 : 'yhdeksän', 10: 'kymmenen'}
-WEEKDAYS = {0:'sunnuntai', 1:'maanantai', 2:'tiistai', 3:'keskiviikko', 4:'torstai', 5:'perjantai', 6:'lauantai'}
+MONTHS = ['', 'tammikuu', 'helmikuu', 'maaliskuu', 'huhtikuu', 'toukokuu', 'kesäkuu', 'heinäkuu', 'elokuu', 'syyskuu', 'lokakuu', 'marraskuu', 'joulukuu']
+NUMBERS = ['nolla', 'yksi', 'kaksi', 'kolme', 'neljä', 'viisi', 'kuusi', 'seitsemän', 'kahdeksan', 'yhdeksän', 'kymmenen']
+WEEKDAYS = ['maanantai', 'tiistai', 'keskiviikko', 'torstai', 'perjantai', 'lauantai', 'sunnuntai']
+
 def numberInFinnish(num):
     length = len(str(num))
     if length < 5:
@@ -63,24 +64,42 @@ def readTime(hour, minute):
         time += ' (' + str(hour) + '.00' + ')'
     else: time += ' (' + str(hour) + '.' + str(minute) + ')'
     print(time)
-   
-
+    
+if __name__ == '__main__':
 # Generate date:
-year = random.randrange(1000, 9999)
-month = random.randrange(1, 13)
-if month in (1, 3, 5, 7, 8, 10, 12):
-    day = random.randrange(1, 31)
-elif month == 2:
-    # if this year is a leap year
-    if (not year % 4 and year % 100) or not year % 400:
-        day = random.randrange(1, 28)
-    else: day = random.randrange(1, 29)
-else: day = random.randrange(1, 30)
+    year = random.randrange(1000, 10000)
+    month = random.randrange(1, 13)
+    if month in (1, 3, 5, 7, 8, 10, 12):
+        day = random.randrange(1, 32)
+    elif month == 2:
+        # if this year is a leap year
+        if (not year % 4 and year % 100) or not year % 400:
+            day = random.randrange(1, 29)
+        else: day = random.randrange(1, 30)
+        # Or it can be write in one line
+        # day = random.randrange(1, 29) if (not year % 4 and year % 100) or not year % 400 else random.randrange(1, 30)
+    else: day = random.randrange(1, 31)
+    
+    readDate(year, month, day)
+    
+    # Generate time:
+    hour = random.randrange(0, 13)
+    minute = random.randrange(0, 60)
+    
+    readTime(hour, minute)
 
-readDate(year, month, day)
+'''
+    # Or we generate date and time just by built-in function:
+    timestamp = random.randint(0, 32510000000)
+    DateTime = time.localtime(timestamp)
+    
+    year = DateTime.tm_year
+    month = DateTime.tm_mon
+    day = DateTime.tm_mday
+    wday = DateTime.tm_wday
+    hour = DateTime.tm_hour
+    minute = DateTime.tm_minute
 
-# Generate time:
-hour = random.randrange(0, 13)
-minute = random.randrange(0, 60)
-
-readTime(hour, minute)
+    readDate(year, month, day, wday)
+    readTime(hour, minute)
+ '''  

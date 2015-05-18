@@ -233,11 +233,12 @@ import time
 
 print(time.strftime('%Y-%m-%d', time.localtime(time.time())))
 '''
+'''
 # solve the equation
 a = 10
 b = 40
 c = 15
-delta = b ** 2 - 4 * a * c
+delta =  ** 2 - 4 * a * c
 if delta < 0:
     print(' No solution!')
 elif delta == 0: 
@@ -245,12 +246,10 @@ elif delta == 0:
 else: 
     print('x1 = ' + str((-b + delta ** 0.5) / (2 * a)))
     print('x2 = ' + str((-b - delta ** 0.5) / (2 * a)))
-    
-sum = 0
-for year in range(10):
-    sum = (1000 + sum) * (1 + 0.047)
-print(sum)
-
+'''
+year = 2008
+day = 28 if (year % 4) or ((year % 400) and not(year % 100)) else 29
+print(day)
 
 
 
