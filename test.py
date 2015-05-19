@@ -399,7 +399,7 @@ for i in range(100):
 '''
 def sum_(n):  
     return n + {True:lambda:sum_(n-1), False:lambda:0}[not not n]()  
-print(sum_(100))
+print(sum_(100)
 '''
 # This is Example 5-1
 
@@ -624,17 +624,8 @@ else:
 finally:
     print ('The end of the program')
 '''
+'''
 print(zip([1, 2, 3], [1, 2, 3]))
-
-
-
-
-
-
-
-
-
-
 
 def sum_1(n):  
     return n + {True:sum_1(n-1), False:0}[not not n]
@@ -642,6 +633,16 @@ def sum_1(n):
 def sum_2(n):
     return {n}
 print(sum_2(2))
+'''
+a = 1
+def f():
+    print(a)
+def f2():
+    global a
+    a = 2
+f()
+f2()
+print(a)
 
 
 

@@ -8,7 +8,7 @@ Created on 15.5.2015
 
 @author: e1201757
 '''
-from itertools import product
+
 def Text2List(priceText):
     productsList = []
     products = priceText.split('\n')

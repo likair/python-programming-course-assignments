@@ -11,7 +11,7 @@ Created on 19.5.2015
 @author: e1201757
 '''
 import os
-FILEPATH = 'product_db.txt'
+DB_PATH = 'product_db.txt'
 
 def writeToFile(content, filePath):
     file = open(filePath, 'a+')
@@ -31,6 +31,7 @@ def readFromFile(filePath):
             productDict['unit_price'] = details[1]
             productDict['amount'] = details[2]
             productsList.append(productDict)
+        file.close()
         return productsList
     return []
         
@@ -40,17 +41,26 @@ def inputProductsFromConsole():
         print('Please enter product data (name;unit price;amount), and use \';\' to separate(enter \'q\' to quit).')
         print('For example: Apple;2;100')
         text =  input('New product:').replace(' ', '')
-        if len(text.split(';')) == 3:
-            writeToFile(text, FILEPATH)
+        if validateProduct(text):
+            writeToFile(text, DB_PATH)
             input('New data have been saved. Enter \'ENTER\' to continue.')
-            print('---------------------------------------')
+            print('---------------------------------------')    
         elif text == 'q': 
             print('---------------------------------------')
             break
-    
+        else: 
+            print('Wrong Format!')
+            input('Enter \'ENTER\' to continue.')
+            print('---------------------------------------')
+
+def validateProduct(text):
+    details = text.split(';')    
+    if len(details) == 3:
+        return True
+    return False    
     
 def searchProducts(criteria, value):
-    productsList = readFromFile(FILEPATH)
+    productsList = readFromFile(DB_PATH)
     correctProducts = []
     print('Search Result(s):')
     for productDict in productsList:
@@ -90,7 +100,7 @@ if __name__ == '__main__':
             value = input('Enter the value:')
             searchProducts(criteria, value)
         elif choice == '3':
-            showAllProducts(FILEPATH)
+            showAllProducts(DB_PATH)
         elif choice == '4':
             print('Bye bye!')
             break
