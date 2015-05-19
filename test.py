@@ -396,6 +396,7 @@ for i in range(100):
 
     dist += 5
 '''
+'''
 def sum_(n):  
     return n + {  
             True:lambda:sum_(n-1),  
@@ -403,6 +404,241 @@ def sum_(n):
         }[not not n]()  
   
 print(sum_(100))
+'''
+# This is Example 5-1
+
+# Here we define a function for reading the file
+'''
+
+def fileLength(filename):
+
+    'returns the number of characters in file filename'
+    
+    infile = open(filename, 'r')
+    
+    content = infile.read()
+    
+    infile.close()
+    
+    return 'The number of characters in ' + filename + ' is ' + str(len(content))
+
+# Here we define a function for reading the file
+
+def fileContent(filename):
+
+    'returns the content of file filename'
+    
+    infile = open(filename, 'r')
+    
+    content = infile.read()
+    
+    infile.close()
+    
+    return content
+
+# Here we define a function for reading the file
+
+def fileLines(filename):
+
+    'returns the content of file filename'
+    
+    infile = open(filename, 'r')
+    
+    fileLines = infile.readlines()
+    
+    infile.close()
+    
+    return fileLines
+
+# Here we define a function for reading the file
+
+def fileLinesCount(filename):
+
+    'returns the content of file filename'
+    
+    infile = open(filename, 'r')
+    
+    fileLines = infile.readlines()
+    
+    infile.close()
+    
+    return len(fileLines)
+
+# Here we define a function for appending text to the file
+
+def writeToFile(content, filename):
+
+    'appends content to the filename'
+    
+    outfile = open(filename, 'a')
+    
+    outfile.write(content + '\n')
+    
+    outfile.close()
+    
+    return fileContent(filename);
+
+ 
+
+# Here we ask the name of a file
+
+filename = input('Enter file name: ')
+
+content = input('Enter some text: ')
+
+# Here we print the length of the file
+
+print(writeToFile(content, filename))
+
+print('Lines in the file:')
+
+print(fileLines(filename))
+
+print('Number of lines in the file:')
+
+print(fileLinesCount(filename))
+'''
+'''
+f = open('mysql.txt', 'r+')
+f.readline()
+f.close()
+'''
+'''
+#Example 6-1
+#Here we define the file path and name
+file="C:/Temp/registry.txt"
+try:
+    #Here we open the file in read mode
+    infile = open(file, "r")
+    #Here we try to write to the file
+    infile.write("Apple 100 1.99\nOrange 80 0.99\n")
+    #infile.flush()
+    infile.close()
+#Here we catch the IO exception  
+except IOError:
+    print ('Error: can\'t find or write to ' + file + '!')
+#Here we put the code in case there is no error  
+else:
+    print ('Data was written to the ' + file + ' successfully')
+'''
+
+# Here we define the file path and name
+'''
+file = "C:/Temp/registry.txt"
+x = 2.56
+y = 0
+cont = 'yes'
+try:
+    s = cont + x  
+    # Here we divide x by zero
+    d = x / y
+    # Here we open the file in read mode
+    infile = open(file, "r")
+    # Here we try to write to the file
+    infile.write("Apple 100 1.99\nOrange 80 0.99\n")
+    # infile.flush()
+    infile.close()
+# Here we catch TypeException
+except TypeError:
+    print ('Cannot sum text with number! ')
+# Here we catch IOException  
+except  IOError:
+    print ('IOError! ')
+# Here we catch ZeroDivisionError
+except  ZeroDivisionError:
+    print ('ZeroDivisionError')
+# Here we put the code in case there is no error  
+else:
+    print ('The program was executed successfully')
+'''
+#Here we define the file path and name
+'''
+file="C:/Temp/registry.txt"
+x=2.56
+y=0
+cont='yes'
+try:
+    s=cont + x  
+    #Here we divide x by zero
+    d=x/y
+    #Here we open the file in read mode
+    infile = open(file, "r")
+    #Here we try to write to the file
+    infile.write("Apple 100 1.99\nOrange 80 0.99\n")
+    #infile.flush()
+    infile.close()
+#Here we catch TypeException
+except:
+    print ('There was an exception in the program!')
+#Here we put the code in case there is no error  
+else:
+    print ('The program was executed successfully')
+'''
+'''
+#Here we define the file path and name
+
+file="C:/Temp/registry.txt"
+
+x=2.56
+
+y=0
+
+cont='yes'
+
+try:
+    try:
+        s=cont + x
+    #Here we catch TypeException
+    except TypeError as e:
+        print ('Cannot sum text with number: ' + str(e))
+    finally:
+        print ('After trying to sum string with number')     
+    #Here we divide x by zero
+    d=x/y
+    #Here we open the file in read mode
+    infile = open(file, "r")
+    #Here we try to write to the file
+    infile.write("Apple 100 1.99\nOrange 80 0.99\n")
+    #infile.flush()
+    infile.close()
+#Here we catch IOException  
+except  IOError as e:
+    print ('IOError: ' + str(e))
+#Here we catch ZeroDivisionError
+except  ZeroDivisionError as e:
+    print ('ZeroDivisionError: ' + str(e))
+#Here we put the code in case there is no error  
+else:
+    print ('The program was executed successfully')
+finally:
+    print ('The end of the program')
+'''
+'''
+# We can also raise an exception manually. To do this we use raise command, like in the following:
+y=0
+try:
+    if y==0:
+        raise ArithmeticError
+#Here we catch IOException  
+except  ArithmeticError as e:
+    print ('ArithmeticError ' + str(e) )
+#Here we put the code in case there is no error  
+else:
+    print ('The program was executed successfully')
+finally:
+    print ('The end of the program')
+'''
+print(zip([1, 2, 3], [1, 2, 3]))
+
+
+
+
+
+
+
+
+
+
 
 
 
