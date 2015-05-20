@@ -65,18 +65,16 @@ def inputProductsFromConsole():
             break        
         elif validateProduct(text):
             writeToFile(text, DB_PATH)
-            input('New data have been saved. Enter \'ENTER\' to continue.')
-            print('---------------------------------------')    
-
-        else: 
-            input('Enter \'ENTER\' to continue.')
-            print('---------------------------------------')
+            print('New data have been saved.')
+        input('Enter \'ENTER\' to continue.')
+        print('---------------------------------------')
 
 def validateProduct(text):
     details = text.split(';')
     try:    
-        if len(details) == 3 and eval(details[1]) > 0 or eval(details[2]) >= 0 :
-            return True
+        if len(details) != 3 or eval(details[1]) < 0 or eval(details[2]) < 0 :
+            raise Exception
+        return True
     except:
         errorMsg = 'Wrong data format.'
         logError(errorMsg, LOG_PATH)
