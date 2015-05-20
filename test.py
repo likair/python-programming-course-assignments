@@ -634,6 +634,7 @@ def sum_2(n):
     return {n}
 print(sum_2(2))
 '''
+'''
 a = 1
 def f():
     print(a)
@@ -643,6 +644,9 @@ def f2():
 f()
 f2()
 print(a)
-
+'''
+import re
+if re.match('\d{3,5}', '12345'):
+    print('M')
 
 
