@@ -645,8 +645,35 @@ f()
 f2()
 print(a)
 '''
+'''
 import re
 if re.match('\d{3,5}', '12345'):
     print('M')
+'''
+'''
+import re
+text = '123445'
+print(re.compile('1.*?5').findall(text))
+'''
+import re
+text = 'The sky may be sunny or cloudy, but still you should try to do your best to achieve your tiny joy.'
+print(re.findall('.*y$', text))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
