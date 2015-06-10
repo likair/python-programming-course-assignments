@@ -743,6 +743,7 @@ button.pack(side=BOTTOM)
 
 root.mainloop()
 '''
+'''
 from tkinter import Tk, Button, Label, Entry, END
 
 from time import strptime, strftime, localtime
@@ -803,7 +804,7 @@ root.geometry('+150+200')
 
 # Here we make the window unresizable
 '''
-
+'''
 root.resizable(width=True, height=False)
 
 label = Label(root, text='Enter date')
@@ -935,12 +936,14 @@ x, y=120, 100
 
 root.mainloop()
 '''
+'''
 import re
 import os
 
 text = 'https://portal.vamk.fi/pluginfile.php/1/theme_formal_white/customlogourl/1432199285/tunnus.png'
 result = os.path.basename(text)
 print(result)
+'''
 
 
 
