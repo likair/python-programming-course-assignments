@@ -3,6 +3,7 @@ Created on 12.5.2015
 
 @author: e1201757
 '''
+from random import choice
 '''
 foo=0
 print([x[:] for x in [[foo]*10]*10])
@@ -547,7 +548,7 @@ except  ZeroDivisionError:
 else:
     print ('The program was executed successfully')
 '''
-#Here we define the file path and name
+# Here we define the file path and name
 '''
 file="C:/Temp/registry.txt"
 x=2.56
@@ -655,15 +656,291 @@ import re
 text = '123445'
 print(re.compile('1.*?5').findall(text))
 '''
+'''
 import re
 text = 'The sky may be sunny or cloudy, but still you should try to do your best to achieve your tiny joy.'
 print(re.findall('.*y$', text))
+'''
+'''
+import random
 
+print(random.random())
+print(random.randrange(10))
+print(choice(range(1)))
+'''
+'''
+print(choice(range(1)))
+'''
+'''
+class Test:
+    pass
 
+dic = {}
+dic[(Test())] = 1
+print(dic)
+'''
+'''
+locals()['player2'] = 1
+print(locals()['player2'])
+'''
+'''
+dic = {}
+dic['test'] = 1
+print(dic[0])   # wrong
+'''  
+'''
+from tkinter import Tk, Button, RIDGE, BOTTOM,messagebox
 
+from time import strftime, localtime
 
+#Here we define a click handler function
 
+def click_handler():
 
+    'prints current day and time info'
+
+    time=strftime('Day: %d %b %Y\nTime: %H:%M:%S %p\n', localtime())
+
+    #Here we display the current date and time on a dialogbox
+
+    messagebox.showinfo(title="Date & Time", message=time)
+
+#Here we create the main window
+
+root=Tk()
+
+#Here we set the title of the window
+
+root.wm_title("Main Window")
+
+#Here we set the dimensions of the window
+
+root.geometry('200x150')
+
+#Here we set the position of the window
+
+root.geometry('+150+200')
+
+#Here we would set both the dimensions and position of the window
+
+#root.geometry('200x200+50+60')
+
+#Here is another way to specify the width and height of the window
+
+#root.geometry('{}x{}'.format(150, 150))
+
+#Here we make the window unresizable
+
+root.resizable(width=False, height=False)
+
+button=Button(root,
+
+              text='Display Date & Time',
+
+              command=click_handler)
+
+button.pack(side=BOTTOM)
+
+root.mainloop()
+'''
+from tkinter import Tk, Button, Label, Entry, END
+
+from time import strptime, strftime, localtime
+
+from tkinter.messagebox import showinfo
+
+# Here we define a callback function for handling the event
+
+def compute():
+
+    'display day of the week corresponding to date in dateEnt; date must be in this format MMM DD, YYY'
+
+    # Here we refer to the global variable dateEntry
+
+    global dateEntry
+
+    # Here we read date from entry dateEnt
+
+    date = dateEntry.get()
+
+    # Here we extract the weekday
+
+    weekday = strftime('%A', strptime(date, '%b %d, %Y'))
+
+   
+
+    # Here we display the current date and time on a dialogbox
+
+    showinfo(message='{} was a {}'.format(date, weekday))
+
+    # Here we clear the current content of the entry
+
+    dateEntry.delete(0, END)
+
+# Here we create the main window
+
+root = Tk()
+
+# Here we set the title of the window
+
+root.wm_title("Main Window")
+
+# Here we set the dimensions of the window
+
+root.geometry('200x100')
+
+# Here we set the position of the window
+
+root.geometry('+150+200')
+
+# Here we would set both the dimensions and position of the window
+
+# root.geometry('200x200+50+60')
+
+# Here is another way to specify the width and height of the window
+
+# root.geometry('{}x{}'.format(150, 150))
+
+# Here we make the window unresizable
+'''
+
+root.resizable(width=True, height=False)
+
+label = Label(root, text='Enter date')
+
+label.grid(row=0, column=0)
+
+# Here we add an Entry object
+
+dateEntry = Entry(root)
+
+dateEntry.grid(row=0, column=1)
+
+# Here we add a Button object
+
+button = Button(root,
+
+              text='Enter',
+
+              command=compute)
+
+button.grid(row=2, column=1, columnspan=3)
+
+root.mainloop()
+'''
+'''
+from tkinter import Tk, Canvas, Frame, Button, SUNKEN, LEFT, RIGHT
+
+#Here we define a callback function for handling the button clicking
+
+def up():
+
+    'initializes the start of te curve to mouse position'
+
+    #Here we access the globa variables y and canvas
+
+    global y, canvas
+
+    canvas.create_line(x, y, x, y-20)
+
+    y -=20
+
+#Here we define a callback function for handling the button clicking
+
+def down():
+
+    'initializes the start of te curve to mouse position'
+
+    #Here we access the globa variables y and canvas
+
+    global y, canvas
+
+    canvas.create_line(x, y, x, y+20)
+
+    y +=20
+
+  
+
+#Here we define a callback function for handling the button clicking
+
+def right():
+
+    'initializes the start of te curve to mouse position'
+
+    #Here we access the globa variables y and canvas
+
+    global x, canvas
+
+    canvas.create_line(x, y, x+20, y)
+
+    x +=20
+
+#Here we define a callback function for handling the button clicking
+
+def left():
+
+    'initializes the start of te curve to mouse position'
+
+    #Here we access the globa variables y and canvas
+
+    global x, canvas
+
+    canvas.create_line(x, y, x-20, y)
+
+    x -=20
+
+  
+
+#Here we create the main window
+
+root=Tk()
+
+root.geometry('400x300')
+
+root.wm_title('Plotting Window')
+
+#Here we define a Canvas object
+
+canvas=Canvas(root, height=200, width=200, relief=SUNKEN, borderwidth=20)
+
+canvas.pack(side=LEFT)
+
+#Here we define a frame to hold four buttons
+
+buttonFrame=Frame(root)
+
+buttonFrame.pack(side=RIGHT)
+
+#Here we specify the buttons
+
+button=Button(buttonFrame, text='Up', command=up)
+
+button.grid(row=0, column=0, columnspan=2)
+
+button=Button(buttonFrame, text='Left', command=left)
+
+button.grid(row=1, column=0)
+
+button=Button(buttonFrame, text='Right', command=right)
+
+button.grid(row=1, column=1)
+
+button=Button(buttonFrame, text='Down', command=down)
+
+button.grid(row=2, column=0, columnspan=2)
+
+#Here we specify the initail pen position
+
+x, y=120, 100
+
+root.mainloop()
+'''
+import re
+import os
+
+text = 'https://portal.vamk.fi/pluginfile.php/1/theme_formal_white/customlogourl/1432199285/tunnus.png'
+result = os.path.basename(text)
+print(result)
 
 
 

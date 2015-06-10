@@ -10,5 +10,5 @@ import re
     
 text = 'The sky may be sunny or cloudy, but still you should try to do your best to achieve your tiny joy.'
 
-print([word for word in re.split('\W', text) if re.match('.*y$', word) != None])
+print([word for word in re.split('\W+', text) if re.match('.*y$', word)])
     

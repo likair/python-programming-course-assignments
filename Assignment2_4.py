@@ -8,9 +8,9 @@ Created on 13.5.2015
 
 @author: e1201757
 '''
-test = input("Please input some test:")
+text = input("Please input some text:")
 # remove the non word part
-wordsList = re.compile("[^a-zA-Z0-9\\-öäåÖÄÅ]+").split(test)
+wordsList = re.compile("[^a-zA-Z0-9\\-öäåÖÄÅ]+").split(text)
 dic = {}
 for word in wordsList:
         if not word in dic.keys():

@@ -24,11 +24,11 @@ def f():
         brad.dot(1)
 
 #elif trigger == 'q':f
-def g():
+def q():
     window.bye()
     print('The program has been terminated!')
 
 window.onkey(f, 'f')
-window.onkey(g, 'g')
+window.onkey(q, 'q')
 window.listen()
 turtle.done()
